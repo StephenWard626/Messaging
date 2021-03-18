@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Messaging.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace Messaging.Controllers
     public class SMSController : Controller
     {
         // GET: SMSController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(TextMessage msg)
         {
-            return View();
+            return View(msg);
         }
 
         // GET: SMSController/Create
@@ -24,11 +25,12 @@ namespace Messaging.Controllers
         // POST: SMSController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(TextMessage sms)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details",sms);
+                //Redirecting to the Details action above
             }
             catch
             {
