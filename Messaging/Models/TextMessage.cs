@@ -11,7 +11,7 @@ namespace Messaging.Models
     {
         [Required]
         [StringLength(10, MinimumLength = 10, ErrorMessage = "Number must be 10 digits")]
-        [RegularExpression(@"^/d{10}$", ErrorMessage = "Number must be 10 digits")] //This cod is saying that we want this data to be digits with a length of 10
+        [RegularExpression(@"^/d{10}$", ErrorMessage = "Number must be 10 digits")] //This code is saying that we want this data to be digits with a length of 10
         [DisplayName("To")]
         public string ToNumber { get; set; }
 
